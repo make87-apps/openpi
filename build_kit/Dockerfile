@@ -15,10 +15,14 @@ ENV OPENPI_DATA_HOME=/models
 ENV PORT=80
 
 # Clone openpi client and script
+# Clone openpi client and script
 RUN git clone --depth=1 https://github.com/Physical-Intelligence/openpi.git /tmp/openpi && \
     mkdir -p packages/openpi-client && \
     cp -r /tmp/openpi/packages/openpi-client/* packages/openpi-client/ && \
-    mkdir -p scripts && cp /tmp/openpi/scripts/serve_policy.py scripts/ && \
+    cp /tmp/openpi/pyproject.toml ./ && \
+    cp /tmp/openpi/uv.lock ./ && \
+    mkdir -p scripts && \
+    cp /tmp/openpi/scripts/serve_policy.py scripts/ && \
     rm -rf /tmp/openpi
 
 RUN uv venv --python 3.11.9 $UV_PROJECT_ENVIRONMENT && \

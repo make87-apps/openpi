@@ -15,6 +15,8 @@ build:
   custom:
     dockerfile: ./build_kit/Dockerfile
     target: pi0_fast_droid
+    platforms:
+      - linux/amd64
 peripheral_requirements:
   - peripheral_type: GPU
     name: GPU
@@ -24,8 +26,12 @@ variants:
       custom:
         dockerfile: ./build_kit/Dockerfile
         target: pi0_droid
+        platforms:
+          - linux/amd64
   aloha:
     build:
       custom:
         dockerfile: ./build_kit/Dockerfile
         target: pi0_aloha_towel
+        platforms:
+          - linux/amd64
