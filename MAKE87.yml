@@ -1,6 +1,31 @@
-build_kit:
-  name: python3
-  version: latest
-outbound_topics:
-  - name: HELLO_WORLD_MESSAGE
-    message_type: make87_messages.text.text_plain.PlainText
+version: 1
+interfaces:
+  - name: pi-server
+    protocol: http
+    default_port:
+      name: http-port
+      protocol: TCP
+      target_port: 80
+    servers:
+      - name: POLICY_SERVER
+        spec:
+          string: openpi
+container_config: {}
+build:
+  custom:
+    dockerfile: ./build_kit/Dockerfile
+    target: pi0_fast_droid
+peripheral_requirements:
+  - peripheral_type: GPU
+    name: GPU
+variants:
+  droid:
+    build:
+      custom:
+        dockerfile: ./build_kit/Dockerfile
+        target: pi0_droid
+  aloha:
+    build:
+      custom:
+        dockerfile: ./build_kit/Dockerfile
+        target: pi0_aloha_towel
