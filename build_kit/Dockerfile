@@ -21,6 +21,7 @@ RUN git clone --depth=1 https://github.com/Physical-Intelligence/openpi.git /tmp
     cp -r /tmp/openpi/packages/openpi-client/* packages/openpi-client/ && \
     cp /tmp/openpi/pyproject.toml ./ && \
     cp /tmp/openpi/uv.lock ./ && \
+    cp /tmp/openpi/LICENSE ./ && \
     mkdir -p scripts && \
     cp /tmp/openpi/scripts/serve_policy.py scripts/ && \
     rm -rf /tmp/openpi
