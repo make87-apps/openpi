@@ -20,21 +20,24 @@ RUN git clone --depth=1 https://github.com/Physical-Intelligence/openpi.git . &&
 
 # ========== Target: pi0_fast_droid ==========
 FROM base AS pi0_fast_droid
-RUN mkdir -p /models/pi0_fast_droid && \
-    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_fast_droid/policy_params.pkl -o /models/pi0_fast_droid/policy_params.pkl && \
-    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_fast_droid/policy_weights.msgpack -o /models/pi0_fast_droid/policy_weights.msgpack
+RUN mkdir -p /models/pi0_fast_droid/params && \
+    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_fast_droid/params/checkpoint -o /models/pi0_fast_droid/params/checkpoint && \
+    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_fast_droid/params/data-00000-of-00001 -o /models/pi0_fast_droid/params/data-00000-of-00001 && \
+    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_fast_droid/params/index -o /models/pi0_fast_droid/params/index
 ENTRYPOINT ["uv", "run", "scripts/serve_policy.py", "policy:checkpoint", "--policy.config=pi0_fast_droid", "--policy.dir=/models/pi0_fast_droid"]
 
 # ========== Target: pi0_droid ==========
 FROM base AS pi0_droid
-RUN mkdir -p /models/pi0_droid && \
-    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_droid/policy_params.pkl -o /models/pi0_droid/policy_params.pkl && \
-    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_droid/policy_weights.msgpack -o /models/pi0_droid/policy_weights.msgpack
+RUN mkdir -p /models/pi0_droid/params && \
+    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_droid/params/checkpoint -o /models/pi0_droid/params/checkpoint && \
+    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_droid/params/data-00000-of-00001 -o /models/pi0_droid/params/data-00000-of-00001 && \
+    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_droid/params/index -o /models/pi0_droid/params/index
 ENTRYPOINT ["uv", "run", "scripts/serve_policy.py", "policy:checkpoint", "--policy.config=pi0_droid", "--policy.dir=/models/pi0_droid"]
 
 # ========== Target: pi0_aloha_towel ==========
 FROM base AS pi0_aloha_towel
-RUN mkdir -p /models/pi0_aloha_towel && \
-    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_aloha_towel/policy_params.pkl -o /models/pi0_aloha_towel/policy_params.pkl && \
-    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_aloha_towel/policy_weights.msgpack -o /models/pi0_aloha_towel/policy_weights.msgpack
+RUN mkdir -p /models/pi0_aloha_towel/params && \
+    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_aloha_towel/params/checkpoint -o /models/pi0_aloha_towel/params/checkpoint && \
+    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_aloha_towel/params/data-00000-of-00001 -o /models/pi0_aloha_towel/params/data-00000-of-00001 && \
+    curl -L https://storage.googleapis.com/openpi-assets/checkpoints/pi0_aloha_towel/params/index -o /models/pi0_aloha_towel/params/index
 ENTRYPOINT ["uv", "run", "scripts/serve_policy.py", "policy:checkpoint", "--policy.config=pi0_aloha_towel", "--policy.dir=/models/pi0_aloha_towel"]
