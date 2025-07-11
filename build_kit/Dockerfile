@@ -34,16 +34,16 @@ EOF
 FROM base AS pi0_aloha
 ENV OPENPI_DATA_HOME=/models/pi0_aloha
 RUN uv run python download_checkpoint.py gs://openpi-assets/checkpoints/pi0_base
-ENTRYPOINT ["uv", "run", "scripts/serve_policy.py", "--env", "aloha"]
+ENTRYPOINT ["uv", "run", "scripts/serve_policy.py", "--env", "ALOHA"]
 
 # ========== Target: pi0_fast_droid ==========
 FROM base AS pi0_fast_droid
 ENV OPENPI_DATA_HOME=/models/pi0_fast_droid
 RUN uv run python download_checkpoint.py gs://openpi-assets/checkpoints/pi0_fast_droid
-ENTRYPOINT ["uv", "run", "scripts/serve_policy.py", "--env", "droid"]
+ENTRYPOINT ["uv", "run", "scripts/serve_policy.py", "--env", "DROID"]
 
 # ========== Target: pi0_fast_libero ==========
 FROM base AS pi0_fast_libero
 ENV OPENPI_DATA_HOME=/models/pi0_fast_libero
 RUN uv run python download_checkpoint.py gs://openpi-assets/checkpoints/pi0_fast_libero
-ENTRYPOINT ["uv", "run", "scripts/serve_policy.py", "--env", "libero"]
+ENTRYPOINT ["uv", "run", "scripts/serve_policy.py", "--env", "LIBERO"]
