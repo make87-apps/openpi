@@ -14,7 +14,7 @@ container_config: {}
 build:
   custom:
     dockerfile: ./build_kit/Dockerfile
-    target: pi0_fast_droid
+    target: pi0_aloha
     platforms:
       - linux/amd64
 peripheral_requirements:
@@ -25,13 +25,13 @@ variants:
     build:
       custom:
         dockerfile: ./build_kit/Dockerfile
-        target: pi0_droid
+        target: pi0_fast_droid
         platforms:
           - linux/amd64
-  aloha:
+  libero:
     build:
       custom:
         dockerfile: ./build_kit/Dockerfile
-        target: pi0_aloha_towel
+        target: pi0_fast_libero
         platforms:
           - linux/amd64

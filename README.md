@@ -6,15 +6,9 @@ This app runs the [OpenPI](https://github.com/Physical-Intelligence/openpi) poli
 
 There are three supported variants, each preloaded with a different OpenPI policy:
 
-- **pi0_fast_droid**  
-  Fastest and lightest variant.  
-  VRAM usage: ~300 MB  
+- **pi0_aloha**  
   _This is the **default** variant._
 
-- **pi0_droid**  
-  Standard policy for the DROID environment.  
-  VRAM usage: ~1.1 GB
+- **pi0_fast_droid**  
 
-- **pi0_aloha_towel**  
-  Policy for ALOHA towel manipulation tasks.  
-  VRAM usage: ~1.3 GB
+- **pi0_fast_libero**  
